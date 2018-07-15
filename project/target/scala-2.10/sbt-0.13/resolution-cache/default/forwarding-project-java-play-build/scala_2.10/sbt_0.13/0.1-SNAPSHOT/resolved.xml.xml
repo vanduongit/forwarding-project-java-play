@@ -4,7 +4,7 @@
 		module="forwarding-project-java-play-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20180714090850"
+		publication="20180716064105"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

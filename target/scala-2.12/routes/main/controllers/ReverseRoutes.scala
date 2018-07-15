@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/phanvanduong/Projects/windy/forwarding-project-java-play/conf/routes
-// @DATE:Sat Jul 14 09:09:03 ICT 2018
+// @DATE:Mon Jul 16 06:41:19 ICT 2018
 
 import play.api.mvc.Call
 
@@ -11,17 +11,62 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:10
-  class ReverseAsyncController(_prefix: => String) {
+  // @LINE:18
+  class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:10
-    def message(): Call = {
+    // @LINE:18
+    def versioned(file:Asset): Call = {
+      implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
+      Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
+    }
+  
+  }
+
+  // @LINE:12
+  class ReverseHomeAPI(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:12
+    def loginUser(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "message")
+      Call("GET", _prefix + { _defaultPrefix } + "EbsUserWS/services/apis/login")
+    }
+  
+  }
+
+  // @LINE:8
+  class ReverseCountController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:8
+    def count(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "count")
+    }
+  
+  }
+
+  // @LINE:15
+  class ReverseTestAPI(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:15
+    def loginUser(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "test/EbsUserWS/services/apis/login")
     }
   
   }
@@ -41,32 +86,17 @@ package controllers {
   
   }
 
-  // @LINE:13
-  class ReverseAssets(_prefix: => String) {
+  // @LINE:10
+  class ReverseAsyncController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:13
-    def versioned(file:Asset): Call = {
-      implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
-      Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
-    }
-  
-  }
-
-  // @LINE:8
-  class ReverseCountController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:8
-    def count(): Call = {
+    // @LINE:10
+    def message(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "count")
+      Call("GET", _prefix + { _defaultPrefix } + "message")
     }
   
   }

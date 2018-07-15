@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/phanvanduong/Projects/windy/forwarding-project-java-play/conf/routes
-// @DATE:Sat Jul 14 09:09:03 ICT 2018
+// @DATE:Mon Jul 16 06:41:19 ICT 2018
 
 
 package router {
