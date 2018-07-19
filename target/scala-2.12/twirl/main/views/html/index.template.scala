@@ -34,14 +34,77 @@ object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
 
 
 Seq[Any](format.raw/*6.1*/("""
-"""),format.raw/*11.4*/("""
-"""),_display_(/*12.2*/main("Welcome to Play")/*12.25*/ {_display_(Seq[Any](format.raw/*12.27*/("""
+"""),format.raw/*7.1*/("""<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8" />
+        <title>AngularJS User Registration and Login Example</title>
+        <link rel="stylesheet" href="assets/angular-app/lib/bootstrap.min.css">
+        <link href="assets/angular-app/app-content/app.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-sm-8 col-sm-offset-1">
+                <div ui-view=""></div>
+            </div>
+        </div>
+            <!-- <div class="credits text-center">
+        <p>
+            <a href="http://jasonwatmore.com/post/2015/03/10/angularjs-user-registration-and-login-example-tutorial">AngularJS User Registration and Login Example</a>
+        </p>
+        <p>
+            <a href="http://jasonwatmore.com">JasonWatmore.com</a>
+        </p>
+    </div> -->
+        <script src="assets/angular-app/lib/jquery-3.1.1.min.js"></script>
+        <script src="assets/angular-app/lib/bootstrap.min.js"></script>
+        <script src="assets/angular-app/lib/angular.min.js"></script>
+        <script src="assets/angular-app/lib/angular-route.min.js"></script>
+        <script src="assets/angular-app/lib/angular-ui-router.js"></script>
+        <script src="assets/angular-app/lib/angular-cookies.min.js"></script>
+        <script src="assets/angular-app/angular-md5.js"></script>
 
-    """),format.raw/*17.8*/("""
-    """),_display_(/*18.6*/welcome(message, style = "java")),format.raw/*18.38*/("""
+        <script src="assets/angular-app/app.js"></script>
+        <script src="assets/angular-app/app-services/authentication.service.js"></script>
+        <script src="assets/angular-app/app-services/flash.service.js"></script>
 
-""")))}),format.raw/*20.2*/("""
-"""))
+            <!-- Real user service that uses an api -->
+            <!-- <script src="assets/angular-app/app-services/user.service.js"></script> -->
+
+            <!-- Fake user service for demo that uses local storage -->
+        <script src="assets/angular-app/app-services/status.service.js"></script>
+        <script src="assets/angular-app/app-services/session.service.js"></script>
+
+        <script src="assets/angular-app/app-services/user.service.js"></script>
+
+        <script src="assets/angular-app/home/home.controller.js"></script>
+        <script src="assets/angular-app/login/login.controller.js"></script>
+        <script src="assets/angular-app/login/login.service.js"></script>
+        <script src="assets/angular-app/register/register.controller.js"></script>
+        <script src="assets/angular-app/resetFirstTimeLoginForAgentAPI/resetAgentPassword/resetAgentPassword.controller.js"></script>
+        <script src="assets/angular-app/resetFirstTimeLoginForAgentAPI/firstTimeLogin/firstTimeLogin.controller.js"></script>
+        <script src="assets/angular-app/extendSession/extendSession.controller.js"></script>
+        <script src="assets/angular-app/checkAccountBalance/checkAccountBalance.controller.js"></script>
+        <script src="assets/angular-app/updateUserGeneralProfile/update.controller.js"></script>
+        <script src="assets/angular-app/depositTopUp/agentDeposit/agentDeposit.controller.js"></script>
+        <script src="assets/angular-app/depositTopUp/userDeposit/userDeposit.controller.js"></script>
+        <script src="assets/angular-app/cancelDeposit/cancel.controller.js"></script>
+        <script src="assets/angular-app/withdrawal/agent/withdrawal.controller.js"></script>
+        <script src="assets/angular-app/withdrawal/user/withdrawal.controller.js"></script>
+        <script src="assets/angular-app/drawResultAPI/draw.controller.js"></script>
+        <script src="assets/angular-app/drawOpenAPI/draw.controller.js"></script>
+        <script src="assets/angular-app/viewWinning/viewWinning.controller.js"></script>
+        <script src="assets/angular-app/transactionHistory/agent/history.controller.js"></script>
+        <script src="assets/angular-app/transactionHistory/user/history.controller.js"></script>
+        <script src="assets/angular-app/getGames/games.controller.js"></script>
+        <script src="assets/angular-app/validateSession/validate.controller.js"></script>
+        <script src="assets/angular-app/betting/betting.controller.js"></script>
+        <script src="assets/angular-app/uploadFile/uploadFile.controller.js"></script>
+
+
+
+    </body>
+</html>"""))
       }
     }
   }
@@ -57,11 +120,11 @@ Seq[Any](format.raw/*6.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Jul 14 09:09:04 ICT 2018
+                  DATE: Thu Jul 19 23:18:15 ICT 2018
                   SOURCE: /Users/phanvanduong/Projects/windy/forwarding-project-java-play/app/views/index.scala.html
-                  HASH: 9040cdc6391df1f5c9d9a05a763073d6fd21d0f1
-                  MATRIX: 1037->95|1148->113|1176->308|1204->310|1236->333|1276->335|1309->464|1341->470|1394->502|1427->505
-                  LINES: 31->5|36->6|37->11|38->12|38->12|38->12|40->17|41->18|41->18|43->20
+                  HASH: 02cc3fd4e4f6f61b7ab6e7c9c84ee4737efde02c
+                  MATRIX: 1037->95|1148->113|1175->114
+                  LINES: 31->5|36->6|37->7
                   -- GENERATED --
               */
           

@@ -1,394 +1,235 @@
-2018-07-16 06:42:26,524 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - ApplicationTimer demo: Starting application at 2018-07-15T23:42:26.523Z
-2018-07-16 06:42:26,586 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-12 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2018-07-19 22:18:12,746 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - ApplicationTimer demo: Starting application at 2018-07-19T15:18:12.746Z
+2018-07-19 22:18:13,072 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
     filters.ExampleFilter
 
-2018-07-16 06:42:26,766 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-12 - Application started (Dev)
-2018-07-16 06:42:33,471 [INFO] from application in application-akka.actor.default-dispatcher-5 - Headers: {"Accept":["*/*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7"],"Cache-Control":["no-cache"],"Connection":["keep-alive"],"Host":["localhost:9000"],"Postman-Token":["28608e2a-af70-a6e5-6bde-e9826fa405f6"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Remote-Address":["0:0:0:0:0:0:0:1:49738"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
-2018-07-16 06:42:33,478 [ERROR] from application in application-akka.actor.default-dispatcher-5 - 
-
-! @78i7n34lc - Internal server error, for (GET) [/EbsUserWS/services/apis/login] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.NullPointerException]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:363)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:361)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:413)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:43)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: java.lang.NullPointerException
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
-	at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:593)
-	at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:577)
-	at java.util.concurrent.CompletableFuture.uniApplyStage(CompletableFuture.java:617)
-	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:1993)
-	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:110)
-	at play.libs.streams.Accumulator$StrictAccumulator.lambda$map$0(Accumulator.java:362)
-	at java.util.function.Function.lambda$andThen$1(Function.java:88)
-	at java.util.function.Function.lambda$andThen$1(Function.java:88)
-	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:403)
-	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:400)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
-	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:357)
-	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
-	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
-	... 12 common frames omitted
-Caused by: java.lang.NullPointerException: null
-	at services.ApiService.get(ApiService.java:23)
-	at controllers.HomeAPI.loginUser(HomeAPI.java:17)
-	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$8(Routes.scala:203)
-	at play.core.routing.HandlerInvokerFactory$$anon$4.resultCall(HandlerInvoker.scala:137)
-	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$8$$anon$2$$anon$1.invocation(HandlerInvoker.scala:108)
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:88)
-	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:31)
-	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:138)
-	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:654)
-	at scala.util.Success.$anonfun$map$1(Try.scala:251)
-	at scala.util.Success.map(Try.scala:209)
-	at scala.concurrent.Future.$anonfun$map$1(Future.scala:288)
-	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
-	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
-	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
-	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
-	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete(Promise.scala:368)
-	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete$(Promise.scala:367)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.onComplete(Promise.scala:375)
-	at scala.concurrent.impl.Promise.transform(Promise.scala:29)
-	at scala.concurrent.impl.Promise.transform$(Promise.scala:27)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.transform(Promise.scala:375)
-	at scala.concurrent.Future.map(Future.scala:288)
-	at scala.concurrent.Future.map$(Future.scala:288)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.map(Promise.scala:375)
-	at scala.concurrent.Future$.apply(Future.scala:654)
-	at play.core.j.JavaAction.apply(JavaAction.scala:138)
-	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
-	at scala.util.Try$.apply(Try.scala:209)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:218)
-	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:217)
-	... 22 common frames omitted
-2018-07-16 06:43:22,194 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-16 - ApplicationTimer demo: Stopping application at 2018-07-15T23:43:22.194Z after 56s.
-2018-07-16 06:43:22,430 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-16 - ApplicationTimer demo: Starting application at 2018-07-15T23:43:22.429Z
-2018-07-16 06:43:22,673 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-16 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2018-07-19 22:18:13,194 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev)
+2018-07-19 22:33:05,458 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-42 - ApplicationTimer demo: Stopping application at 2018-07-19T15:33:05.458Z after 893s.
+2018-07-19 22:33:05,732 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-42 - ApplicationTimer demo: Starting application at 2018-07-19T15:33:05.732Z
+2018-07-19 22:33:05,760 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-42 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
     filters.ExampleFilter
 
-2018-07-16 06:43:22,700 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-16 - Application started (Dev)
-2018-07-16 06:43:22,713 [INFO] from application in application-akka.actor.default-dispatcher-3 - Headers: {"Accept":["*/*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7"],"Cache-Control":["no-cache"],"Connection":["keep-alive"],"Host":["localhost:9000"],"Postman-Token":["9951cd0e-f764-cab9-8525-a973607b95e2"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Remote-Address":["0:0:0:0:0:0:0:1:49738"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
-2018-07-16 06:43:22,720 [ERROR] from application in application-akka.actor.default-dispatcher-3 - 
-
-! @78i7n5pha - Internal server error, for (GET) [/EbsUserWS/services/apis/login] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.RuntimeException: java.net.MalformedURLException: unknown protocol: localhost]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:363)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:361)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:413)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:43)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: java.lang.RuntimeException: java.net.MalformedURLException: unknown protocol: localhost
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
-	at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:593)
-	at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:577)
-	at java.util.concurrent.CompletableFuture.uniApplyStage(CompletableFuture.java:617)
-	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:1993)
-	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:110)
-	at play.libs.streams.Accumulator$StrictAccumulator.lambda$map$0(Accumulator.java:362)
-	at java.util.function.Function.lambda$andThen$1(Function.java:88)
-	at java.util.function.Function.lambda$andThen$1(Function.java:88)
-	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:403)
-	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:400)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
-	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:357)
-	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
-	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
-	... 12 common frames omitted
-Caused by: java.lang.RuntimeException: java.net.MalformedURLException: unknown protocol: localhost
-	at play.libs.ws.ahc.StandaloneAhcWSRequest.<init>(StandaloneAhcWSRequest.java:89)
-	at play.libs.ws.ahc.StandaloneAhcWSClient.url(StandaloneAhcWSClient.java:60)
-	at play.libs.ws.ahc.AhcWSClient.url(AhcWSClient.java:75)
-	at services.ApiService.get(ApiService.java:25)
-	at controllers.HomeAPI.loginUser(HomeAPI.java:17)
-	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$8(Routes.scala:203)
-	at play.core.routing.HandlerInvokerFactory$$anon$4.resultCall(HandlerInvoker.scala:137)
-	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$8$$anon$2$$anon$1.invocation(HandlerInvoker.scala:108)
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:88)
-	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:31)
-	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:138)
-	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:654)
-	at scala.util.Success.$anonfun$map$1(Try.scala:251)
-	at scala.util.Success.map(Try.scala:209)
-	at scala.concurrent.Future.$anonfun$map$1(Future.scala:288)
-	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
-	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
-	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
-	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
-	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete(Promise.scala:368)
-	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete$(Promise.scala:367)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.onComplete(Promise.scala:375)
-	at scala.concurrent.impl.Promise.transform(Promise.scala:29)
-	at scala.concurrent.impl.Promise.transform$(Promise.scala:27)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.transform(Promise.scala:375)
-	at scala.concurrent.Future.map(Future.scala:288)
-	at scala.concurrent.Future.map$(Future.scala:288)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.map(Promise.scala:375)
-	at scala.concurrent.Future$.apply(Future.scala:654)
-	at play.core.j.JavaAction.apply(JavaAction.scala:138)
-	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
-	at scala.util.Try$.apply(Try.scala:209)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:218)
-	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:217)
-	... 22 common frames omitted
-Caused by: java.net.MalformedURLException: unknown protocol: localhost
-	at java.net.URL.<init>(URL.java:600)
-	at java.net.URL.<init>(URL.java:490)
-	at java.net.URL.<init>(URL.java:439)
-	at play.libs.ws.ahc.StandaloneAhcWSRequest.<init>(StandaloneAhcWSRequest.java:75)
-	... 62 common frames omitted
-2018-07-16 06:43:42,182 [INFO] from application in application-akka.actor.default-dispatcher-2 - Headers: {"Accept":["*/*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7"],"Cache-Control":["no-cache"],"Connection":["keep-alive"],"Host":["localhost:9000"],"Postman-Token":["9f47e340-2974-f998-8643-14c35bcf4c65"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Remote-Address":["0:0:0:0:0:0:0:1:49738"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
-2018-07-16 06:43:42,183 [ERROR] from application in application-akka.actor.default-dispatcher-2 - 
-
-! @78i7n72c0 - Internal server error, for (GET) [/EbsUserWS/services/apis/login] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.RuntimeException: java.net.MalformedURLException: unknown protocol: localhost]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:363)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:361)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:413)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:43)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: java.lang.RuntimeException: java.net.MalformedURLException: unknown protocol: localhost
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
-	at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:593)
-	at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:577)
-	at java.util.concurrent.CompletableFuture.uniApplyStage(CompletableFuture.java:617)
-	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:1993)
-	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:110)
-	at play.libs.streams.Accumulator$StrictAccumulator.lambda$map$0(Accumulator.java:362)
-	at java.util.function.Function.lambda$andThen$1(Function.java:88)
-	at java.util.function.Function.lambda$andThen$1(Function.java:88)
-	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:403)
-	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:400)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
-	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:357)
-	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
-	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
-	... 12 common frames omitted
-Caused by: java.lang.RuntimeException: java.net.MalformedURLException: unknown protocol: localhost
-	at play.libs.ws.ahc.StandaloneAhcWSRequest.<init>(StandaloneAhcWSRequest.java:89)
-	at play.libs.ws.ahc.StandaloneAhcWSClient.url(StandaloneAhcWSClient.java:60)
-	at play.libs.ws.ahc.AhcWSClient.url(AhcWSClient.java:75)
-	at services.ApiService.get(ApiService.java:25)
-	at controllers.HomeAPI.loginUser(HomeAPI.java:17)
-	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$8(Routes.scala:203)
-	at play.core.routing.HandlerInvokerFactory$$anon$4.resultCall(HandlerInvoker.scala:137)
-	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$8$$anon$2$$anon$1.invocation(HandlerInvoker.scala:108)
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:88)
-	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:31)
-	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:138)
-	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:654)
-	at scala.util.Success.$anonfun$map$1(Try.scala:251)
-	at scala.util.Success.map(Try.scala:209)
-	at scala.concurrent.Future.$anonfun$map$1(Future.scala:288)
-	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
-	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
-	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
-	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
-	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete(Promise.scala:368)
-	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete$(Promise.scala:367)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.onComplete(Promise.scala:375)
-	at scala.concurrent.impl.Promise.transform(Promise.scala:29)
-	at scala.concurrent.impl.Promise.transform$(Promise.scala:27)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.transform(Promise.scala:375)
-	at scala.concurrent.Future.map(Future.scala:288)
-	at scala.concurrent.Future.map$(Future.scala:288)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.map(Promise.scala:375)
-	at scala.concurrent.Future$.apply(Future.scala:654)
-	at play.core.j.JavaAction.apply(JavaAction.scala:138)
-	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
-	at scala.util.Try$.apply(Try.scala:209)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:218)
-	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:217)
-	... 22 common frames omitted
-Caused by: java.net.MalformedURLException: unknown protocol: localhost
-	at java.net.URL.<init>(URL.java:600)
-	at java.net.URL.<init>(URL.java:490)
-	at java.net.URL.<init>(URL.java:439)
-	at play.libs.ws.ahc.StandaloneAhcWSRequest.<init>(StandaloneAhcWSRequest.java:75)
-	... 62 common frames omitted
-2018-07-16 06:43:43,271 [INFO] from application in application-akka.actor.default-dispatcher-2 - Headers: {"Accept":["*/*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7"],"Cache-Control":["no-cache"],"Connection":["keep-alive"],"Host":["localhost:9000"],"Postman-Token":["89476aa4-31f3-85ff-caf1-b5e9ec92d698"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Remote-Address":["0:0:0:0:0:0:0:1:49738"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
-2018-07-16 06:43:43,273 [ERROR] from application in application-akka.actor.default-dispatcher-2 - 
-
-! @78i7n741o - Internal server error, for (GET) [/EbsUserWS/services/apis/login] ->
- 
-play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: java.lang.RuntimeException: java.net.MalformedURLException: unknown protocol: localhost]]
-	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:251)
-	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:178)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:363)
-	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:361)
-	at scala.concurrent.Future.$anonfun$recoverWith$1(Future.scala:413)
-	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:37)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:91)
-	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
-	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:81)
-	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:91)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:40)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:43)
-	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.util.concurrent.CompletionException: java.lang.RuntimeException: java.net.MalformedURLException: unknown protocol: localhost
-	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
-	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
-	at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:593)
-	at java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:577)
-	at java.util.concurrent.CompletableFuture.uniApplyStage(CompletableFuture.java:617)
-	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:1993)
-	at java.util.concurrent.CompletableFuture.thenApplyAsync(CompletableFuture.java:110)
-	at play.libs.streams.Accumulator$StrictAccumulator.lambda$map$0(Accumulator.java:362)
-	at java.util.function.Function.lambda$andThen$1(Function.java:88)
-	at java.util.function.Function.lambda$andThen$1(Function.java:88)
-	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:403)
-	at play.libs.streams.Accumulator$StrictAccumulator$1.apply(Accumulator.java:400)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at play.api.libs.streams.StrictAccumulator.run(Accumulator.scala:207)
-	at play.core.server.AkkaHttpServer.$anonfun$runAction$4(AkkaHttpServer.scala:357)
-	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:41)
-	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$3(FastFuture.scala:51)
-	... 12 common frames omitted
-Caused by: java.lang.RuntimeException: java.net.MalformedURLException: unknown protocol: localhost
-	at play.libs.ws.ahc.StandaloneAhcWSRequest.<init>(StandaloneAhcWSRequest.java:89)
-	at play.libs.ws.ahc.StandaloneAhcWSClient.url(StandaloneAhcWSClient.java:60)
-	at play.libs.ws.ahc.AhcWSClient.url(AhcWSClient.java:75)
-	at services.ApiService.get(ApiService.java:25)
-	at controllers.HomeAPI.loginUser(HomeAPI.java:17)
-	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$8(Routes.scala:203)
-	at play.core.routing.HandlerInvokerFactory$$anon$4.resultCall(HandlerInvoker.scala:137)
-	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$8$$anon$2$$anon$1.invocation(HandlerInvoker.scala:108)
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:88)
-	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:31)
-	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:138)
-	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:654)
-	at scala.util.Success.$anonfun$map$1(Try.scala:251)
-	at scala.util.Success.map(Try.scala:209)
-	at scala.concurrent.Future.$anonfun$map$1(Future.scala:288)
-	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
-	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
-	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
-	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:68)
-	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete(Promise.scala:368)
-	at scala.concurrent.impl.Promise$KeptPromise$Kept.onComplete$(Promise.scala:367)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.onComplete(Promise.scala:375)
-	at scala.concurrent.impl.Promise.transform(Promise.scala:29)
-	at scala.concurrent.impl.Promise.transform$(Promise.scala:27)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.transform(Promise.scala:375)
-	at scala.concurrent.Future.map(Future.scala:288)
-	at scala.concurrent.Future.map$(Future.scala:288)
-	at scala.concurrent.impl.Promise$KeptPromise$Successful.map(Promise.scala:375)
-	at scala.concurrent.Future$.apply(Future.scala:654)
-	at play.core.j.JavaAction.apply(JavaAction.scala:138)
-	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:96)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$4(Accumulator.scala:174)
-	at scala.util.Try$.apply(Try.scala:209)
-	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
-	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:218)
-	at play.api.libs.streams.StrictAccumulator$$anon$1.apply(Accumulator.scala:217)
-	... 22 common frames omitted
-Caused by: java.net.MalformedURLException: unknown protocol: localhost
-	at java.net.URL.<init>(URL.java:600)
-	at java.net.URL.<init>(URL.java:490)
-	at java.net.URL.<init>(URL.java:439)
-	at play.libs.ws.ahc.StandaloneAhcWSRequest.<init>(StandaloneAhcWSRequest.java:75)
-	... 62 common frames omitted
-2018-07-16 06:44:04,599 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - ApplicationTimer demo: Stopping application at 2018-07-15T23:44:04.599Z after 42s.
-2018-07-16 06:44:04,817 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - ApplicationTimer demo: Starting application at 2018-07-15T23:44:04.817Z
-2018-07-16 06:44:04,838 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-12 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2018-07-19 22:33:05,768 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-42 - Application started (Dev)
+2018-07-19 22:35:58,452 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-70 - ApplicationTimer demo: Stopping application at 2018-07-19T15:35:58.452Z after 173s.
+2018-07-19 22:35:58,712 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-70 - ApplicationTimer demo: Starting application at 2018-07-19T15:35:58.712Z
+2018-07-19 22:35:58,734 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-70 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
     filters.ExampleFilter
 
-2018-07-16 06:44:04,846 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-12 - Application started (Dev)
-2018-07-16 06:44:04,856 [INFO] from application in application-akka.actor.default-dispatcher-4 - Headers: {"Accept":["*/*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7"],"Cache-Control":["no-cache"],"Connection":["keep-alive"],"Host":["localhost:9000"],"Postman-Token":["d7ea8eaa-6648-a439-e773-2628ffd94e83"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Remote-Address":["0:0:0:0:0:0:0:1:49738"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
-2018-07-16 06:44:05,013 [INFO] from application in ForkJoinPool.commonPool-worker-1 - Status 404
+2018-07-19 22:35:58,740 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-70 - Application started (Dev)
+2018-07-19 22:38:25,810 [INFO] from application in application-akka.actor.default-dispatcher-21 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:60470"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:38:26,042 [INFO] from application in ForkJoinPool.commonPool-worker-1 - Status 404
+2018-07-19 22:39:39,245 [INFO] from application in application-akka.actor.default-dispatcher-27 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:60475"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:39:39,263 [INFO] from application in ForkJoinPool.commonPool-worker-2 - Status 404
+2018-07-19 22:42:02,483 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-142 - ApplicationTimer demo: Stopping application at 2018-07-19T15:42:02.483Z after 364s.
+2018-07-19 22:42:02,691 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-142 - ApplicationTimer demo: Starting application at 2018-07-19T15:42:02.691Z
+2018-07-19 22:42:02,713 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-142 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2018-07-19 22:42:02,718 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-142 - Application started (Dev)
+2018-07-19 22:42:09,077 [INFO] from application in application-akka.actor.default-dispatcher-5 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:62179"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:42:09,077 [INFO] from application in application-akka.actor.default-dispatcher-5 - Url /EbsUserWS/services/apis/login
+2018-07-19 22:42:09,091 [INFO] from application in ForkJoinPool.commonPool-worker-3 - Status 404
+2018-07-19 22:42:43,877 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-148 - ApplicationTimer demo: Stopping application at 2018-07-19T15:42:43.876Z after 41s.
+2018-07-19 22:42:44,094 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-148 - ApplicationTimer demo: Starting application at 2018-07-19T15:42:44.094Z
+2018-07-19 22:42:44,111 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-148 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2018-07-19 22:42:44,116 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-148 - Application started (Dev)
+2018-07-19 22:42:50,503 [INFO] from application in application-akka.actor.default-dispatcher-5 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:62176"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:42:50,503 [INFO] from application in application-akka.actor.default-dispatcher-5 - Url http://localhost:9000/test//EbsUserWS/services/apis/login
+2018-07-19 22:42:50,524 [INFO] from application in ForkJoinPool.commonPool-worker-0 - Status 404
+2018-07-19 22:43:24,330 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-141 - ApplicationTimer demo: Stopping application at 2018-07-19T15:43:24.330Z after 40s.
+2018-07-19 22:43:24,538 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-141 - ApplicationTimer demo: Starting application at 2018-07-19T15:43:24.538Z
+2018-07-19 22:43:24,557 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-141 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2018-07-19 22:43:24,561 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-141 - Application started (Dev)
+2018-07-19 22:43:29,975 [INFO] from application in application-akka.actor.default-dispatcher-4 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:62175"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:43:29,975 [INFO] from application in application-akka.actor.default-dispatcher-4 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:43:29,998 [INFO] from application in ForkJoinPool.commonPool-worker-1 - Status 200
+2018-07-19 22:45:52,360 [INFO] from application in application-akka.actor.default-dispatcher-15 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:63095"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:45:52,365 [INFO] from application in application-akka.actor.default-dispatcher-15 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:45:52,420 [INFO] from application in ForkJoinPool.commonPool-worker-2 - Status 200
+2018-07-19 22:46:50,566 [INFO] from application in application-akka.actor.default-dispatcher-12 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:63095"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:46:50,566 [INFO] from application in application-akka.actor.default-dispatcher-12 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:46:50,584 [INFO] from application in ForkJoinPool.commonPool-worker-3 - Status 200
+2018-07-19 22:47:59,465 [INFO] from application in application-akka.actor.default-dispatcher-28 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:63096"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:47:59,465 [INFO] from application in application-akka.actor.default-dispatcher-28 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:47:59,493 [INFO] from application in ForkJoinPool.commonPool-worker-0 - Status 200
+2018-07-19 22:51:03,047 [INFO] from application in application-akka.actor.default-dispatcher-37 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:64523"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:51:03,047 [INFO] from application in application-akka.actor.default-dispatcher-37 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:51:03,063 [INFO] from application in ForkJoinPool.commonPool-worker-1 - Status 200
+2018-07-19 22:51:38,920 [INFO] from application in application-akka.actor.default-dispatcher-39 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:64527"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:51:38,920 [INFO] from application in application-akka.actor.default-dispatcher-39 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:51:38,932 [INFO] from application in ForkJoinPool.commonPool-worker-2 - Status 200
+2018-07-19 22:52:24,129 [INFO] from application in application-akka.actor.default-dispatcher-40 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:64522"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:52:24,129 [INFO] from application in application-akka.actor.default-dispatcher-40 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:52:24,136 [INFO] from application in ForkJoinPool.commonPool-worker-3 - Status 200
+2018-07-19 22:54:00,850 [INFO] from application in application-akka.actor.default-dispatcher-38 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:65265"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:54:00,850 [INFO] from application in application-akka.actor.default-dispatcher-38 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:54:00,862 [INFO] from application in ForkJoinPool.commonPool-worker-0 - Status 200
+2018-07-19 22:55:59,030 [INFO] from application in application-akka.actor.default-dispatcher-59 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:49295"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:55:59,031 [INFO] from application in application-akka.actor.default-dispatcher-59 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:55:59,045 [INFO] from application in ForkJoinPool.commonPool-worker-1 - Status 200
+2018-07-19 22:56:58,835 [INFO] from application in application-akka.actor.default-dispatcher-62 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:49294"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:56:58,835 [INFO] from application in application-akka.actor.default-dispatcher-62 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:56:58,841 [INFO] from application in ForkJoinPool.commonPool-worker-2 - Status 200
+2018-07-19 22:57:08,408 [INFO] from application in application-akka.actor.default-dispatcher-58 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:49296"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:57:08,409 [INFO] from application in application-akka.actor.default-dispatcher-58 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:57:08,417 [INFO] from application in ForkJoinPool.commonPool-worker-3 - Status 200
+2018-07-19 22:57:19,416 [INFO] from application in application-akka.actor.default-dispatcher-69 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:49295"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:57:19,416 [INFO] from application in application-akka.actor.default-dispatcher-69 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:57:19,420 [INFO] from application in ForkJoinPool.commonPool-worker-0 - Status 200
+2018-07-19 22:57:40,490 [INFO] from application in application-akka.actor.default-dispatcher-71 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:49292"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:57:40,490 [INFO] from application in application-akka.actor.default-dispatcher-71 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:57:40,498 [INFO] from application in ForkJoinPool.commonPool-worker-1 - Status 200
+2018-07-19 22:59:45,964 [INFO] from application in application-akka.actor.default-dispatcher-89 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:49297"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 22:59:45,964 [INFO] from application in application-akka.actor.default-dispatcher-89 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 22:59:45,976 [INFO] from application in ForkJoinPool.commonPool-worker-2 - Status 200
+2018-07-19 23:03:31,286 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-320 - ApplicationTimer demo: Stopping application at 2018-07-19T16:03:31.286Z after 1207s.
+2018-07-19 23:03:31,518 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-320 - ApplicationTimer demo: Starting application at 2018-07-19T16:03:31.518Z
+2018-07-19 23:03:31,544 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-320 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2018-07-19 23:03:31,548 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-320 - Application started (Dev)
+2018-07-19 23:03:37,327 [INFO] from application in application-akka.actor.default-dispatcher-2 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:51206"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:03:37,327 [INFO] from application in application-akka.actor.default-dispatcher-2 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:03:37,336 [INFO] from application in ForkJoinPool.commonPool-worker-3 - Status 200
+2018-07-19 23:04:41,369 [INFO] from application in application-akka.actor.default-dispatcher-4 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:51206"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:04:41,369 [INFO] from application in application-akka.actor.default-dispatcher-4 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:04:41,385 [INFO] from application in ForkJoinPool.commonPool-worker-0 - Status 200
+2018-07-19 23:05:22,550 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-324 - ApplicationTimer demo: Stopping application at 2018-07-19T16:05:22.550Z after 111s.
+2018-07-19 23:05:22,845 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-324 - ApplicationTimer demo: Starting application at 2018-07-19T16:05:22.845Z
+2018-07-19 23:05:22,870 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-324 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2018-07-19 23:05:22,881 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-324 - Application started (Dev)
+2018-07-19 23:05:27,065 [INFO] from application in application-akka.actor.default-dispatcher-2 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:51202"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:05:27,065 [INFO] from application in application-akka.actor.default-dispatcher-2 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:05:27,077 [INFO] from application in ForkJoinPool.commonPool-worker-1 - Status 200
+2018-07-19 23:06:16,134 [INFO] from application in application-akka.actor.default-dispatcher-11 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:51206"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:06:16,134 [INFO] from application in application-akka.actor.default-dispatcher-11 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:06:16,139 [INFO] from application in ForkJoinPool.commonPool-worker-2 - Status 200
+2018-07-19 23:07:08,348 [INFO] from application in application-akka.actor.default-dispatcher-12 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:51202"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:07:08,349 [INFO] from application in application-akka.actor.default-dispatcher-12 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:07:08,366 [INFO] from application in ForkJoinPool.commonPool-worker-3 - Status 200
+2018-07-19 23:07:25,784 [INFO] from application in application-akka.actor.default-dispatcher-23 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:51202"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:07:25,784 [INFO] from application in application-akka.actor.default-dispatcher-23 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:07:25,789 [INFO] from application in ForkJoinPool.commonPool-worker-0 - Status 200
+2018-07-19 23:07:40,021 [INFO] from application in application-akka.actor.default-dispatcher-19 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:51205"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:07:40,021 [INFO] from application in application-akka.actor.default-dispatcher-19 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:07:40,029 [INFO] from application in ForkJoinPool.commonPool-worker-1 - Status 200
+2018-07-19 23:08:22,971 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-335 - ApplicationTimer demo: Stopping application at 2018-07-19T16:08:22.971Z after 180s.
+2018-07-19 23:08:23,158 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-335 - ApplicationTimer demo: Starting application at 2018-07-19T16:08:23.157Z
+2018-07-19 23:08:23,179 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-335 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2018-07-19 23:08:23,185 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-335 - Application started (Dev)
+2018-07-19 23:08:27,980 [INFO] from application in application-akka.actor.default-dispatcher-9 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:51203"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:08:27,981 [INFO] from application in application-akka.actor.default-dispatcher-9 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:08:27,994 [INFO] from application in ForkJoinPool.commonPool-worker-2 - Status 200
+2018-07-19 23:08:46,491 [INFO] from application in application-akka.actor.default-dispatcher-2 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:51203"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:08:46,491 [INFO] from application in application-akka.actor.default-dispatcher-2 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:08:46,496 [INFO] from application in ForkJoinPool.commonPool-worker-3 - Status 200
+2018-07-19 23:12:32,396 [INFO] from application in application-akka.actor.default-dispatcher-10 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:53428"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:12:32,397 [INFO] from application in application-akka.actor.default-dispatcher-10 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:12:32,410 [INFO] from application in ForkJoinPool.commonPool-worker-0 - Status 200
+2018-07-19 23:12:46,701 [INFO] from application in application-akka.actor.default-dispatcher-21 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:53428"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:12:46,701 [INFO] from application in application-akka.actor.default-dispatcher-21 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:12:46,706 [INFO] from application in ForkJoinPool.commonPool-worker-1 - Status 200
+2018-07-19 23:14:52,765 [INFO] from application in application-akka.actor.default-dispatcher-17 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:54027"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:14:52,766 [INFO] from application in application-akka.actor.default-dispatcher-17 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:14:52,780 [INFO] from application in ForkJoinPool.commonPool-worker-2 - Status 200
+2018-07-19 23:15:11,766 [INFO] from application in application-akka.actor.default-dispatcher-28 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:54025"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:15:11,766 [INFO] from application in application-akka.actor.default-dispatcher-28 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:15:11,775 [INFO] from application in ForkJoinPool.commonPool-worker-3 - Status 200
+2018-07-19 23:16:04,275 [INFO] from application in application-akka.actor.default-dispatcher-35 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6ImVkNTA5ZTlmNzI4ZGM4ZDRlYmM2ZTJkNmJiOWM4YTE3MjQxYmU5ZTctMTUzMTUzNDE1NjE4Ni0xZGI3YTAzZTRjZmZiNDhiMjNjZTk2MmQifSwibmJmIjoxNTMxNTM0MTU2LCJpYXQiOjE1MzE1MzQxNTZ9.8uzrJbdyx9L8DPQrvTOdBZ0KNztNyv8PtVc7LKV4s1E"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:54028"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:16:04,275 [INFO] from application in application-akka.actor.default-dispatcher-35 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:16:04,284 [INFO] from application in ForkJoinPool.commonPool-worker-0 - Status 200
+2018-07-19 23:16:07,070 [WARN] from akka.actor.ActorSystemImpl in play-dev-mode-akka.actor.default-dispatcher-416 - Illegal request, responding with status '400 Bad Request': Illegal request-target: Invalid input '[', expected segment, '/', '?' or 'EOI' (line 1, column 12): /api/users/[object%20HTMLInputElement]
+           ^
+2018-07-19 23:18:17,015 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-416 - ApplicationTimer demo: Stopping application at 2018-07-19T16:18:17.015Z after 594s.
+2018-07-19 23:18:17,252 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-416 - ApplicationTimer demo: Starting application at 2018-07-19T16:18:17.252Z
+2018-07-19 23:18:17,268 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-416 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2018-07-19 23:18:17,272 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-416 - Application started (Dev)
+2018-07-19 23:18:18,161 [WARN] from akka.actor.ActorSystemImpl in play-dev-mode-akka.actor.default-dispatcher-449 - Illegal request, responding with status '400 Bad Request': Illegal request-target: Invalid input '[', expected segment, '/', '?' or 'EOI' (line 1, column 12): /api/users/[object%20Object]
+           ^
+2018-07-19 23:20:25,853 [INFO] from application in application-akka.actor.default-dispatcher-12 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:55402"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:20:25,853 [INFO] from application in application-akka.actor.default-dispatcher-12 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:20:25,864 [INFO] from application in ForkJoinPool.commonPool-worker-1 - Status 200
+2018-07-19 23:20:28,820 [WARN] from akka.actor.ActorSystemImpl in play-dev-mode-akka.actor.default-dispatcher-468 - Illegal request, responding with status '400 Bad Request': Illegal request-target: Invalid input '[', expected segment, '/', '?' or 'EOI' (line 1, column 12): /api/users/[object%20HTMLInputElement]
+           ^
+2018-07-19 23:23:19,375 [INFO] from application in application-akka.actor.default-dispatcher-29 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6IjRmYmEzZTVjNzk1MjlhNjdiMThlMTg1NDU4ZjdmNjg4MzMxNGMwNWMtMTUzMjAxNzI5NzcwNy0zN2EyOWY5NjBiYjlkZmUzMWI0MWY3MzkifSwibmJmIjoxNTMyMDE3Mjk3LCJpYXQiOjE1MzIwMTcyOTd9.Y-WAqmLgdGo1NZS_jR2Hf56q-j53rQ2AL5dWPZOO_C4"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:56129"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:23:19,375 [INFO] from application in application-akka.actor.default-dispatcher-29 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:23:19,391 [INFO] from application in ForkJoinPool.commonPool-worker-2 - Status 200
+2018-07-19 23:23:22,778 [WARN] from akka.actor.ActorSystemImpl in play-dev-mode-akka.actor.default-dispatcher-501 - Illegal request, responding with status '400 Bad Request': Illegal request-target: Invalid input '[', expected segment, '/', '?' or 'EOI' (line 1, column 12): /api/users/[object%20HTMLInputElement]
+           ^
+2018-07-19 23:23:27,293 [WARN] from akka.actor.ActorSystemImpl in play-dev-mode-akka.actor.default-dispatcher-494 - Illegal request, responding with status '400 Bad Request': Illegal request-target: Invalid input '[', expected segment, '/', '?' or 'EOI' (line 1, column 12): /api/users/[object%20Object]
+           ^
+2018-07-19 23:26:25,470 [WARN] from akka.actor.ActorSystemImpl in play-dev-mode-akka.actor.default-dispatcher-516 - Illegal request, responding with status '400 Bad Request': Illegal request-target: Invalid input '[', expected segment, '/', '?' or 'EOI' (line 1, column 12): /api/users/[object%20Object]
+           ^
+2018-07-19 23:26:35,884 [INFO] from application in application-akka.actor.default-dispatcher-40 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6IjhjNTZkOWI0NDEwM2Q1MjNkNjE5MTE0NDBhNzJhYmZlNGNjZTcyZTAtMTUzMjAxNzU5MjIzMC1lZTY2MTQ4MTFmYTg0OTk0MzkwMDNkOWYifSwibmJmIjoxNTMyMDE3NTkyLCJpYXQiOjE1MzIwMTc1OTJ9.XCu6zaT7LDx9wlW0R9wVRX_AvClt7zMFRD_S4iYqfJ0"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:56902"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:26:35,884 [INFO] from application in application-akka.actor.default-dispatcher-40 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:26:35,895 [INFO] from application in ForkJoinPool.commonPool-worker-3 - Status 200
+2018-07-19 23:26:38,809 [WARN] from akka.actor.ActorSystemImpl in play-dev-mode-akka.actor.default-dispatcher-521 - Illegal request, responding with status '400 Bad Request': Illegal request-target: Invalid input '[', expected segment, '/', '?' or 'EOI' (line 1, column 12): /api/users/[object%20HTMLInputElement]
+           ^
+2018-07-19 23:28:40,171 [WARN] from akka.actor.ActorSystemImpl in play-dev-mode-akka.actor.default-dispatcher-541 - Illegal request, responding with status '400 Bad Request': Illegal request-target: Invalid input '[', expected segment, '/', '?' or 'EOI' (line 1, column 12): /api/users/[object%20Object]
+           ^
+2018-07-19 23:29:01,088 [INFO] from application in application-akka.actor.default-dispatcher-53 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6IjhjNTZkOWI0NDEwM2Q1MjNkNjE5MTE0NDBhNzJhYmZlNGNjZTcyZTAtMTUzMjAxNzU5MjIzMC1lZTY2MTQ4MTFmYTg0OTk0MzkwMDNkOWYifSwibmJmIjoxNTMyMDE3NTkyLCJpYXQiOjE1MzIwMTc1OTJ9.XCu6zaT7LDx9wlW0R9wVRX_AvClt7zMFRD_S4iYqfJ0"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:57401"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:29:01,088 [INFO] from application in application-akka.actor.default-dispatcher-53 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:29:01,107 [INFO] from application in ForkJoinPool.commonPool-worker-0 - Status 200
+2018-07-19 23:29:01,160 [WARN] from akka.actor.ActorSystemImpl in play-dev-mode-akka.actor.default-dispatcher-529 - Illegal request, responding with status '400 Bad Request': Illegal request-target: Invalid input '[', expected segment, '/', '?' or 'EOI' (line 1, column 12): /api/users/[object%20HTMLInputElement]
+           ^
+2018-07-19 23:29:31,841 [INFO] from application in application-akka.actor.default-dispatcher-53 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6IjhjNTZkOWI0NDEwM2Q1MjNkNjE5MTE0NDBhNzJhYmZlNGNjZTcyZTAtMTUzMjAxNzU5MjIzMC1lZTY2MTQ4MTFmYTg0OTk0MzkwMDNkOWYifSwibmJmIjoxNTMyMDE3NTkyLCJpYXQiOjE1MzIwMTc1OTJ9.XCu6zaT7LDx9wlW0R9wVRX_AvClt7zMFRD_S4iYqfJ0"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:57402"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:29:31,842 [INFO] from application in application-akka.actor.default-dispatcher-53 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:29:31,858 [INFO] from application in ForkJoinPool.commonPool-worker-1 - Status 200
+2018-07-19 23:29:45,888 [WARN] from akka.actor.ActorSystemImpl in play-dev-mode-akka.actor.default-dispatcher-548 - Illegal request, responding with status '400 Bad Request': Illegal request-target: Invalid input '[', expected segment, '/', '?' or 'EOI' (line 1, column 12): /api/users/[object%20HTMLInputElement]
+           ^
+2018-07-19 23:31:46,289 [WARN] from akka.actor.ActorSystemImpl in play-dev-mode-akka.actor.default-dispatcher-564 - Illegal request, responding with status '400 Bad Request': Illegal request-target: Invalid input '[', expected segment, '/', '?' or 'EOI' (line 1, column 12): /api/users/[object%20Object]
+           ^
+2018-07-19 23:31:56,254 [INFO] from application in application-akka.actor.default-dispatcher-53 - Headers: {"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate, br"],"Accept-Language":["vi,en-US;q=0.9,en;q=0.8,ja;q=0.7,la;q=0.6"],"Authorization":["YWNjdGlkPWRvX25vdF9kZWxldGVAZ21haWwuY29tLHBhc3M9YjY1YmQ3NzJjM2IwZGZlYmYwYTE4OWVmZDQyMDM1MmQ="],"Connection":["keep-alive"],"Cookie":["PLAY_SESSION=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImNzcmZUb2tlbiI6IjhjNTZkOWI0NDEwM2Q1MjNkNjE5MTE0NDBhNzJhYmZlNGNjZTcyZTAtMTUzMjAxNzU5MjIzMC1lZTY2MTQ4MTFmYTg0OTk0MzkwMDNkOWYifSwibmJmIjoxNTMyMDE3NTkyLCJpYXQiOjE1MzIwMTc1OTJ9.XCu6zaT7LDx9wlW0R9wVRX_AvClt7zMFRD_S4iYqfJ0"],"Host":["localhost:9000"],"Raw-Request-URI":["/EbsUserWS/services/apis/login"],"Referer":["http://localhost:9000/"],"Remote-Address":["0:0:0:0:0:0:0:1:58168"],"Timeout-Access":["<function1>"],"Tls-Session-Info":["[Session-1, SSL_NULL_WITH_NULL_NULL]"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"]}
+2018-07-19 23:31:56,254 [INFO] from application in application-akka.actor.default-dispatcher-53 - Url http://localhost:9000/test/EbsUserWS/services/apis/login
+2018-07-19 23:31:56,262 [INFO] from application in ForkJoinPool.commonPool-worker-2 - Status 200
+2018-07-19 23:31:56,475 [WARN] from akka.actor.ActorSystemImpl in play-dev-mode-akka.actor.default-dispatcher-565 - Illegal request, responding with status '400 Bad Request': Illegal request-target: Invalid input '[', expected segment, '/', '?' or 'EOI' (line 1, column 12): /api/users/[object%20HTMLInputElement]
+           ^

@@ -14,10 +14,10 @@ public class HomeAPI extends APIController{
 
     public CompletionStage<Result> loginUser(){
         Logger.info("Headers: {}", toJson(getHeaders()));
-        return apiService.get("/EbsUserWS/services/apis/login",getHeaders()).thenApply(res -> {
+        return apiService.get("EbsUserWS/services/apis/login",getHeaders()).thenApply(res -> {
             int status = res.getStatus();
             Logger.info("Status {}", status);
-            return ok();
+            return ok(res.getBody());
         });
     }
 

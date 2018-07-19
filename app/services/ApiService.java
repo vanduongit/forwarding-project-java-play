@@ -2,6 +2,7 @@ package services;
 
 
 import com.fasterxml.jackson.databind.JsonNode;
+import play.Logger;
 import play.libs.Json;
 import play.libs.ws.WSClient;
 import play.libs.ws.WSRequest;
@@ -23,6 +24,7 @@ public class ApiService {
     public CompletionStage<WSResponse> get(String url, Map<String,List<String>> headers){
         JsonNode json = Json.newObject();
         WSRequest request = ws.url(host(url));
+        Logger.info("Url {}", host(url));
         request.setRequestTimeout(5*60*1000);
         request = setHeader(request,headers);
         CompletionStage<WSResponse> response = request.get();
