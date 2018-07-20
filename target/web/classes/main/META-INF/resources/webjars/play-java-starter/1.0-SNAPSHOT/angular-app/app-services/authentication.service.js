@@ -43,11 +43,11 @@
 
         }
 
-        function SetCredentials(acctname, password, token, refreshtoken, role) {            
+        function SetCredentials(acctname, token, refreshtoken, role) {
             let authdata = `acctid=${acctname},tid=${token}`;
             $rootScope.globals = {
                 currentUser: {
-                    username: username,
+                    username: acctname,
                     authdata: authdata,
                     token : token,
                     refreshtoken : refreshtoken,
