@@ -20,6 +20,7 @@ public class ApiService {
     @Inject
     private WSClient ws;
     private String host = "http://localhost:9000/test";
+//    private String host = "http://172.19.19.179:9000";
 
     public CompletionStage<WSResponse> get(String url, Map<String,List<String>> headers){
         JsonNode json = Json.newObject();
